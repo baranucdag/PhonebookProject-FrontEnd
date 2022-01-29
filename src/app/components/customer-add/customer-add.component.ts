@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { CustomerService } from '../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
@@ -29,8 +30,6 @@ export class CustomerAddComponent implements OnInit {
     if(this.customerAddForm.valid){
       let customerModel = Object.assign({},this.customerAddForm.value) 
       this.customerService.add(customerModel).subscribe(response=>{
-        console.log(response)
-       
       })
     }else{
     }

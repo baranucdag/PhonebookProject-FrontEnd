@@ -1,3 +1,4 @@
+import { Customer } from 'src/app/models/customer';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

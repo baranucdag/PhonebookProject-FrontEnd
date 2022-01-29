@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { ToastrService } from 'ngx-toastr';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ToastrService } from 'ngx-toastr';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [ToastrService],
   bootstrap: [AppComponent]

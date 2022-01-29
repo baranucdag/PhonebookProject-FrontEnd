@@ -1,3 +1,17 @@
+<!-- <nav class="navbar navbar-light bg-light" [(ngModel)]="searchKey" (ngModelChange)="search()" floatLabel="never">
+  <form class="container-fluid">
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon1">SEARCH</span>
+      <input type="text" class="form-control" placeholder="input" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </form>
+</nav> -->
+<nav class="navbar">
+  <input class="form-control" type="text" name="customerName" [(ngModel)]="searchKey" (ngModelChange)="search()"
+  placeholder="enter input">
+
+</nav>
+
 <table class="table">
   <thead>
     <tr>
