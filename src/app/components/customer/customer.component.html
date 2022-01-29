@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer Id</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Customer Birth Date</th>
+      <th scope="col">Customer Phone Number</th>
+      <th scope="col">Customer Description</th>
+      <th scope="col">Configure Customer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td scope="col">#</td>
+      <td>{{ customer.customerId }}</td>
+      <td>{{ customer.customerName }}</td>
+      <td>{{ customer.customerBirthDate }}</td>
+      <td>{{ customer.customerPhoneNumber }}</td>
+      <td>{{ customer.customerDescription }}</td>
+    </tr>
+    <tr>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+    </tr>
+  </tbody>
+</table>
