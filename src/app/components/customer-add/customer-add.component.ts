@@ -1,3 +1,4 @@
+import { CustomerService } from '../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 
@@ -9,7 +10,7 @@ import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 export class CustomerAddComponent implements OnInit {
 
   customerAddForm : FormGroup;
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private customerService:CustomerService) { }
 
   ngOnInit(): void {
     this.createCustomerAddForm();
@@ -22,5 +23,17 @@ export class CustomerAddComponent implements OnInit {
       customerPhoneNumber:["",Validators.required],
       customerDescription:["",Validators.required]
     })
+  }
+
+  add(){
+    if(this.customerAddForm.valid){
+      let customerModel = Object.assign({},this.customerAddForm.value) 
+      this.customerService.add(customerModel).subscribe(response=>{
+        console.log(response)
+       
+      })
+    }else{
+    }
+   
   }
 }

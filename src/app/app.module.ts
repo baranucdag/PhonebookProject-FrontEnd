@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
+import { ToastrService } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { NaviComponent } from './components/navi/navi.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

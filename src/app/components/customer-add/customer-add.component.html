@@ -9,8 +9,20 @@
             <div class="form-group">
                 <input type="text" id="customerName" formControlName="customerName" class="form-control" placeholder="Customer Name"/>
             </div>
+            <div class="form-group">
+              <input type="date" id="customerBirthDate" formControlName="customerBirthDate" class="form-control" placeholder="Customer Birth Date"/>
+          </div>
+          <div class="form-group">
+            <input type="text" id="customerPhoneNumber" formControlName="customerPhoneNumber" class="form-control" placeholder="Customer Phone Number"/>
+        </div>
+        <div class="form-group">
+          <input type="text" id="customerDescription" formControlName="customerDescription" class="form-control" placeholder="Customer Description"/>
+      </div>
       </form>
     </div>
+    <div class="card-footer">
+      <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+  </div>
     </div>
   </div>
 </div>

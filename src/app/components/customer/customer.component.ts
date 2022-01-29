@@ -1,4 +1,5 @@
-import { CustomerService } from './services/customer.service';
+import { HttpClient } from '@angular/common/http';
+import { CustomerService } from '../../services/customer.service';
 import { Customer } from '../../models/customer';
 import { Component, OnInit } from '@angular/core';
 
@@ -20,4 +21,5 @@ export class CustomerComponent implements OnInit {
       this.customers = response
     })
   }
+
 }
