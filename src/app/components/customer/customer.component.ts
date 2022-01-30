@@ -1,8 +1,10 @@
+import { Customer } from './../../models/customer';
 import { CustomerService } from '../../services/customer.service';
-import { Customer } from '../../models/customer';
 import { OnInit } from '@angular/core';
 import { Component, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 import {
   FormBuilder,
   FormGroup,
@@ -19,13 +21,14 @@ export class CustomerComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private modalService: BsModalService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private toastService:ToastrService
   ) {}
 
   customers: Customer[] = [];
   searchKey: string;
   modalRef?: BsModalRef;
-  customerAddForm : FormGroup;
+  formGroup : FormGroup;
 
   ngOnInit(): void {
     this.getCustomers();
@@ -39,7 +42,7 @@ export class CustomerComponent implements OnInit {
   }
 
   createCustomerAddForm(){
-    this.customerAddForm = this.formBuilder.group({
+    this.formGroup = this.formBuilder.group({
       customerName:["",Validators.required],
       customerBirthDate:["",Validators.required],
       customerPhoneNumber:["",Validators.required],
@@ -47,10 +50,19 @@ export class CustomerComponent implements OnInit {
     })
   }
 
+  deleteCustomer(customer:Customer){
+    this.customerService.delete(customer).subscribe(respond=>{
+      alert("deleted")
+      this.getCustomers();
+    })
+  }
+
   add(){
-    if(this.customerAddForm.valid){
-      let customerModel = Object.assign({},this.customerAddForm.value) 
+    if(this.formGroup.valid){
+      let customerModel = Object.assign({},this.formGroup.value) 
       this.customerService.add(customerModel).subscribe(response=>{
+        
+        this.getCustomers();
       })
     }else{
     }
