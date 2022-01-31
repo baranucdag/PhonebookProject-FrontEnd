@@ -33,18 +33,18 @@
         <button
           type="button"
           class="btn btn-info"
-          click="deleteRow(customerId)"
+          (click)="updateRow(customerId)"
         >
-          Delete
+          update
         </button>
       </td>
       <td>
         <button
           type="button"
-          class="btn btn-danger mx-auto"
-          click="updateRow(customerId)"
+          class="btn btn-danger mx-1"
+          (click)="deleteCustomer(customer)"
         >
-          Update
+          Delete
         </button>
       </td>
     </tr>
@@ -53,10 +53,9 @@
 </table>
 <div class="d-grid gap-2">
   <button type="button" class="btn btn-primary" (click)="openModal(template)">
-  ADD CUSTOMER
-</button>
+    ADD CUSTOMER
+  </button>
 </div>
-
 
 <ng-template #template>
   <div class="modal-header">
@@ -72,23 +71,47 @@
   </div>
   <div class="modal-body">
     <div id="my-modal-description"></div>
-    <form [formGroup]="customerAddForm">
+    <form [formGroup]="createCustomerAddForm">
       <div class="form-label">
-          <input type="text" id="customerName" formControlName="customerName" class="form-control" placeholder="Customer Name"/>
+        <input
+          type="text"
+          id="customerName"
+          formControlName="customerName"
+          class="form-control"
+          placeholder="Customer Name"
+        />
       </div>
       <div class="form-label">
-        <input type="date" id="customerBirthDate" formControlName="customerBirthDate" class="form-control" placeholder="Customer Birth Date"/>
+        <input
+          type="date"
+          id="customerBirthDate"
+          formControlName="customerBirthDate"
+          class="form-control"
+          placeholder="Customer Birth Date"
+        />
+      </div>
+      <div class="form-label">
+        <input
+          type="text"
+          id="customerPhoneNumber"
+          formControlName="customerPhoneNumber"
+          class="form-control"
+          placeholder="Customer Phone Number"
+        />
+      </div>
+      <div class="form-label">
+        <input
+          type="text"
+          id="customerDescription"
+          formControlName="customerDescription"
+          class="form-control"
+          placeholder="Customer Description"
+        />
+      </div>
+    </form>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="Add()">Add</button>
+      <button type="button" class="btn btn-secondary">Cancel</button>
     </div>
-    <div class="form-label">
-      <input type="text" id="customerPhoneNumber" formControlName="customerPhoneNumber" class="form-control" placeholder="Customer Phone Number"/>
-  </div>
-  <div class="form-label">
-    <input type="text" id="customerDescription" formControlName="customerDescription" class="form-control" placeholder="Customer Description"/>
-</div>
-</form>
-<div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="add()">Add</button>
-  <button type="button" class="btn btn-secondary">Cancel</button>
-</div>
   </div>
 </ng-template>

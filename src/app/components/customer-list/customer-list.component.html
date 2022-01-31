@@ -1,0 +1,50 @@
+<div class="row">
+  <input
+    type="text"
+    placeholder="phoneNo"
+    class="form-control col-6"
+    [(ngModel)]="search"
+  />
+  <button type="button" class="btn btn-danger col-2" (click)="getList()">
+    Search
+  </button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Customer Birth Date</th>
+      <th scope="col">Customer Phone Number</th>
+      <th scope="col">Customer Description</th>
+      <th scope="col">Configure Customer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of list">
+      <td>{{ customer.customerName }}</td>
+      <td>{{ customer.customerBirthDate }}</td>
+      <td>{{ customer.customerPhoneNumber }}</td>
+      <td>{{ customer.customerDescription }}</td>
+      <td>
+        <a [routerLink]="'./' + customer.id + '/edit'" class="btn btn-info"
+          >Güncelle</a
+        >
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger mx-1"
+          (click)="deleteCustomer(customer.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr></tr>
+  </tbody>
+</table>
+
+<a routerLink="./add" class="btn btn-success">Ekle</a>
+
+<router-outlet (deactivate)="getList()"></router-outlet>

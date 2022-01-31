@@ -29,6 +29,7 @@ export class CustomerComponent implements OnInit {
   searchKey: string;
   modalRef?: BsModalRef;
   formGroup : FormGroup;
+  customerObj : Customer;
 
   ngOnInit(): void {
     this.getCustomers();
@@ -43,10 +44,10 @@ export class CustomerComponent implements OnInit {
 
   createCustomerAddForm(){
     this.formGroup = this.formBuilder.group({
-      customerName:["",Validators.required],
-      customerBirthDate:["",Validators.required],
-      customerPhoneNumber:["",Validators.required],
-      customerDescription:["",Validators.required]
+      customerName:[""],
+      customerBirthDate:[""],
+      customerPhoneNumber:[""],
+      customerDescription:[""]
     })
   }
 
@@ -55,19 +56,16 @@ export class CustomerComponent implements OnInit {
       alert("deleted")
       this.getCustomers();
     })
-  }
+  } 
 
   add(){
-    if(this.formGroup.valid){
       let customerModel = Object.assign({},this.formGroup.value) 
       this.customerService.add(customerModel).subscribe(response=>{
-        
-        this.getCustomers();
       })
-    }else{
+      this.getCustomers();
     }
    
-  }
+  
   search() {
     if (this.searchKey == '') {
       this.ngOnInit();
