@@ -1,7 +1,7 @@
 <div class="row">
   <input
     type="text"
-    placeholder="phoneNo"
+    placeholder="Input"
     class="form-control col-6"
     [(ngModel)]="search"
   />
@@ -33,9 +33,12 @@
       </td>
       <td>
         <button
-          type="button"
           class="btn btn-danger mx-1"
-          (click)="deleteCustomer(customer.id)"
+          [swal]="{
+            title: 'Silinsin mi?',
+            showCancelButton: true
+          }"
+          (confirm)="deleteCustomer(customer)"
         >
           Delete
         </button>
@@ -44,7 +47,9 @@
     <tr></tr>
   </tbody>
 </table>
-
-<a routerLink="./add" class="btn btn-success">Ekle</a>
-
+<div class="d-grid gap-2">
+  <button routerLink="./add" class="btn btn-primary" type="button">
+    Add Customer
+  </button>
+</div>
 <router-outlet (deactivate)="getList()"></router-outlet>

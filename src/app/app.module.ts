@@ -11,16 +11,11 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CustomerListComponent,
-    CustomerAddComponent,
-    CustomerEditComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +24,14 @@ import { CustomerAddComponent } from './components/customer-add/customer-add.com
     FormsModule,
     NoopAnimationsModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SweetAlert2Module.forRoot()
+  ],
+  declarations: [
+    AppComponent,
+    CustomerListComponent,
+    CustomerAddComponent,
+    CustomerEditComponent
   ],
   providers: [ToastrService],
   bootstrap: [AppComponent]
