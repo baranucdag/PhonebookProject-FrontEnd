@@ -28,14 +28,14 @@
       <td>{{ customer.customerDescription }}</td>
       <td>
         <a [routerLink]="'./' + customer.id + '/edit'" class="btn btn-info"
-          >Güncelle</a
+          >Update</a
         >
       </td>
       <td>
         <button
           class="btn btn-danger mx-1"
           [swal]="{
-            title: 'Silinsin mi?',
+            title: 'Do you want to delete?',
             showCancelButton: true
           }"
           (confirm)="deleteCustomer(customer)"

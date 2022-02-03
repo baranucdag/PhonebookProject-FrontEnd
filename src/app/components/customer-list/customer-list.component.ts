@@ -37,11 +37,11 @@ export class CustomerListComponent implements OnInit {
   deleteCustomer(customer: Customer) {
     this.customerService.delete(customer).subscribe(
       response => {
-        this.toastr.success('Kayıt Tamamlandı', 'Customer');
+        this.toastr.success('Deleted!', 'Customer');
         this.getList();
       },
       error => {
-        this.toastr.error('Kayıt İşlemi Sırasında Bir Hata Oluştu', 'Customer');
+        this.toastr.error('Error, there is a problem!', 'Customer');
       }
     );
   }

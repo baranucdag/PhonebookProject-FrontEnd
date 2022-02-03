@@ -70,7 +70,7 @@ export class CustomerEditComponent implements OnInit {
         });
       },
       (error) => {
-        this.toastr.error('Kayıt İşlemi Sırasında Bir Hata Oluştu', 'Customer');
+        this.toastr.error('Error, there is a problem', 'Customer');
       }
     );
   }
